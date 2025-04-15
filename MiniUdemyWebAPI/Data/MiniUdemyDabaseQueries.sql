@@ -1,0 +1,2 @@
+Create database MiniUdemyDB
+Drop database MiniUdemyDB

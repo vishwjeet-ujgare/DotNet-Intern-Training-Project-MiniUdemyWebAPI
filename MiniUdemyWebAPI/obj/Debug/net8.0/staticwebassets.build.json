@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "klREWdKjIemo8nWXMh7wDhnfFIvG7WNM5ZbxwRaWeZo=",
+  "Source": "MiniUdemyWebAPI",
+  "BasePath": "_content/MiniUdemyWebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

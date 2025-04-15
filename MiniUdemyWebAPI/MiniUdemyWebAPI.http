@@ -1,0 +1,6 @@
+@MiniUdemyWebAPI_HostAddress = http://localhost:5011
+
+GET {{MiniUdemyWebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
