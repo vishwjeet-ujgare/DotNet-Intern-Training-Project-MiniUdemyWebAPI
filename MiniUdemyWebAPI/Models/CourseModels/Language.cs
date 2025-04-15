@@ -11,5 +11,8 @@ namespace MiniUdemyWebAPI.Models.CourseModels
 
         [Required]
         public string LanguageName { get; set; }
+
+
+        public ICollection<Course> Courses { get; set; } 
     }
 }

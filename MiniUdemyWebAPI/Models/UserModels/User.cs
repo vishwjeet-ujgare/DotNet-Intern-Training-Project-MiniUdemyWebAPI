@@ -1,4 +1,6 @@
-﻿using MiniUdemyWebAPI.Models.UserProfileModels;
+﻿using MiniUdemyWebAPI.Models.CourseModels;
+using MiniUdemyWebAPI.Models.EnrollmentModels;
+using MiniUdemyWebAPI.Models.UserProfileModels;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -44,6 +46,8 @@ namespace MiniUdemyWebAPI.Models.UserModels
         public UserProfile UserProfile { get; set; }
 
         public ICollection<UserRoles> UserRoles  { get; set; }
+
+        public ICollection<Enrollments> Enrollments { get; set; } 
 
 
     }

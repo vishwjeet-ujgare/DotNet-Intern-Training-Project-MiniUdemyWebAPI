@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniUdemyWebAPI.Models.EnrollmentModels;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace MiniUdemyWebAPI.Models.CourseModels
@@ -6,7 +7,11 @@ namespace MiniUdemyWebAPI.Models.CourseModels
     public enum CourseStatus
     {
         Draft,
+        Submitted,
         Published,
+        Approved,
+        Rejected,
+       
       }
 
     public enum CourseLevels
@@ -25,7 +30,7 @@ namespace MiniUdemyWebAPI.Models.CourseModels
         [MaxLength(255)]
         public string Title { get; set; }
 
-        [MaxLength(100)]
+        [MaxLength(1000)]
         public string Description { get; set; }
 
         [MaxLength(100)]
@@ -38,7 +43,7 @@ namespace MiniUdemyWebAPI.Models.CourseModels
         [Required]
         public CourseLevels Level { get; set; }
 
-        [MaxLength(50)]
+        [MaxLength(255)]
         public string ThumbnailUrl { get; set; }
 
         [Required]
@@ -48,20 +53,27 @@ namespace MiniUdemyWebAPI.Models.CourseModels
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
 
-
+        //Course validity
 
         [Range(0, int.MaxValue)]
         public int Years { get; set; } = 0;
 
-        [Range(0, int.MaxValue)]
+        [Range(0,11)]
         public int Months { get; set; } = 0;
 
-        [Range(0, int.MaxValue)]
+        [Range(0, 30)]
         public int Days { get; set; } = 0;
 
 
 
         [Required]
-        public int LanguageId { get; set; }
+        public int LanguageId { get; set; } // foreign key
+        public Language Language { get; set; }
+
+
+        public int CourseCategoryId { get; set; }   //foreign key
+        public CourseCategory Category { get; set; }
+
+        public ICollection<Enrollments> Enrollments { get; set; }
     }
 }

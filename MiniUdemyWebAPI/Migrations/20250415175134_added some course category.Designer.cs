@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiniUdemyWebAPI.Data;
 
@@ -11,9 +12,11 @@ using MiniUdemyWebAPI.Data;
 namespace MiniUdemyWebAPI.Migrations
 {
     [DbContext(typeof(MiniUdemyDBContext))]
-    partial class MiniUdemyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250415175134_added some course category")]
+    partial class addedsomecoursecategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

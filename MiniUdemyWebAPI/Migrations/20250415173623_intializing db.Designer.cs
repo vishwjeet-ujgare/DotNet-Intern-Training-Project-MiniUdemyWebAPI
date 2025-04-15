@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiniUdemyWebAPI.Data;
 
@@ -11,9 +12,11 @@ using MiniUdemyWebAPI.Data;
 namespace MiniUdemyWebAPI.Migrations
 {
     [DbContext(typeof(MiniUdemyDBContext))]
-    partial class MiniUdemyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250415173623_intializing db")]
+    partial class intializingdb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,11 +94,11 @@ namespace MiniUdemyWebAPI.Migrations
 
             modelBuilder.Entity("MiniUdemyWebAPI.Models.CourseModels.CourseCategory", b =>
                 {
-                    b.Property<int>("CourseCategoryId")
+                    b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseCategoryId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
@@ -105,239 +108,11 @@ namespace MiniUdemyWebAPI.Migrations
                     b.Property<int?>("ParentCategoryId")
                         .HasColumnType("int");
 
-                    b.HasKey("CourseCategoryId");
+                    b.HasKey("CategoryId");
 
                     b.HasIndex("ParentCategoryId");
 
                     b.ToTable("CourseCategories");
-
-                    b.HasData(
-                        new
-                        {
-                            CourseCategoryId = 1,
-                            CategoryName = "Programming"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 2,
-                            CategoryName = "Data Science"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 3,
-                            CategoryName = "Web Development"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 4,
-                            CategoryName = "Mobile Development"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 5,
-                            CategoryName = "Game Development"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 6,
-                            CategoryName = "Cloud Computing"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 7,
-                            CategoryName = "Cyber Security"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 8,
-                            CategoryName = "Artificial Intelligence"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 9,
-                            CategoryName = "Machine Learning"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 10,
-                            CategoryName = "Blockchain"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 11,
-                            CategoryName = "Data Analysis"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 12,
-                            CategoryName = "Digital Marketing"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 13,
-                            CategoryName = "Graphic Design"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 14,
-                            CategoryName = "UI/UX Design"
-                        },
-                        new
-                        {
-                            CourseCategoryId = 15,
-                            CategoryName = "Web Design",
-                            ParentCategoryId = 3
-                        },
-                        new
-                        {
-                            CourseCategoryId = 16,
-                            CategoryName = "Web Development",
-                            ParentCategoryId = 3
-                        },
-                        new
-                        {
-                            CourseCategoryId = 17,
-                            CategoryName = "Mobile App Development",
-                            ParentCategoryId = 4
-                        },
-                        new
-                        {
-                            CourseCategoryId = 18,
-                            CategoryName = "Game Design",
-                            ParentCategoryId = 5
-                        },
-                        new
-                        {
-                            CourseCategoryId = 19,
-                            CategoryName = "Game Development",
-                            ParentCategoryId = 5
-                        },
-                        new
-                        {
-                            CourseCategoryId = 20,
-                            CategoryName = "Cloud Security",
-                            ParentCategoryId = 7
-                        },
-                        new
-                        {
-                            CourseCategoryId = 21,
-                            CategoryName = "Cloud Development",
-                            ParentCategoryId = 6
-                        },
-                        new
-                        {
-                            CourseCategoryId = 22,
-                            CategoryName = "Data Visualization",
-                            ParentCategoryId = 11
-                        },
-                        new
-                        {
-                            CourseCategoryId = 23,
-                            CategoryName = "Data Engineering",
-                            ParentCategoryId = 2
-                        },
-                        new
-                        {
-                            CourseCategoryId = 24,
-                            CategoryName = "Java",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 25,
-                            CategoryName = "C#",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 26,
-                            CategoryName = "C++",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 27,
-                            CategoryName = "JavaScript",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 28,
-                            CategoryName = "Python",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 29,
-                            CategoryName = "PHP",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 30,
-                            CategoryName = "Ruby",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 31,
-                            CategoryName = "Swift",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 32,
-                            CategoryName = "Kotlin",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 33,
-                            CategoryName = ".NET",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 34,
-                            CategoryName = "ASP.NET",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 35,
-                            CategoryName = "Django",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 36,
-                            CategoryName = "Flask",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 37,
-                            CategoryName = "Node.js",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 38,
-                            CategoryName = "React.js",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 39,
-                            CategoryName = "Angular",
-                            ParentCategoryId = 1
-                        },
-                        new
-                        {
-                            CourseCategoryId = 40,
-                            CategoryName = "Vue.js",
-                            ParentCategoryId = 1
-                        });
                 });
 
             modelBuilder.Entity("MiniUdemyWebAPI.Models.CourseModels.Language", b =>

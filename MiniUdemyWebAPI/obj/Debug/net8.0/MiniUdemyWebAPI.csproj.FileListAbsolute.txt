@@ -128,6 +128,7 @@ C:\Users\VU116399\source\repos\MiniUdemyWebAPI\MiniUdemyWebAPI\obj\Debug\net8.0\
 C:\Users\VU116399\source\repos\MiniUdemyWebAPI\MiniUdemyWebAPI\obj\Debug\net8.0\MiniUdemyWebAPI.csproj.CoreCompileInputs.cache
 C:\Users\VU116399\source\repos\MiniUdemyWebAPI\MiniUdemyWebAPI\obj\Debug\net8.0\MiniUdemyWebAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\VU116399\source\repos\MiniUdemyWebAPI\MiniUdemyWebAPI\obj\Debug\net8.0\MiniUdemyWebAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\VU116399\source\repos\MiniUdemyWebAPI\MiniUdemyWebAPI\obj\Debug\net8.0\MiniUdemyWebAPI.sourcelink.json
 C:\Users\VU116399\source\repos\MiniUdemyWebAPI\MiniUdemyWebAPI\obj\Debug\net8.0\scopedcss\bundle\MiniUdemyWebAPI.styles.css
 C:\Users\VU116399\source\repos\MiniUdemyWebAPI\MiniUdemyWebAPI\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\VU116399\source\repos\MiniUdemyWebAPI\MiniUdemyWebAPI\obj\Debug\net8.0\staticwebassets.development.json
