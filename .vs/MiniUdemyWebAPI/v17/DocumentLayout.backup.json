@@ -1,0 +1,245 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|c:\\users\\vu116399\\source\\repos\\miniudemywebapi\\miniudemywebapi\\models\\coursemodels\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|solutionrelative:miniudemywebapi\\models\\coursemodels\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|c:\\users\\vu116399\\source\\repos\\miniudemywebapi\\miniudemywebapi\\models\\usermodels\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|solutionrelative:miniudemywebapi\\models\\usermodels\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|c:\\users\\vu116399\\source\\repos\\miniudemywebapi\\miniudemywebapi\\models\\usermodels\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|solutionrelative:miniudemywebapi\\models\\usermodels\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|c:\\users\\vu116399\\source\\repos\\miniudemywebapi\\miniudemywebapi\\models\\usermodels\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|solutionrelative:miniudemywebapi\\models\\usermodels\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|c:\\users\\vu116399\\source\\repos\\miniudemywebapi\\miniudemywebapi\\models\\coursemodels\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|solutionrelative:miniudemywebapi\\models\\coursemodels\\language.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|c:\\users\\vu116399\\source\\repos\\miniudemywebapi\\miniudemywebapi\\data\\miniudemydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|solutionrelative:miniudemywebapi\\data\\miniudemydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|c:\\users\\vu116399\\source\\repos\\miniudemywebapi\\miniudemywebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|solutionrelative:miniudemywebapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|c:\\users\\vu116399\\source\\repos\\miniudemywebapi\\miniudemywebapi\\migrations\\20250415065108_added role and userroles tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|solutionrelative:miniudemywebapi\\migrations\\20250415065108_added role and userroles tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|c:\\users\\vu116399\\source\\repos\\miniudemywebapi\\miniudemywebapi\\models\\userprofilemodels\\userprofileimg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|solutionrelative:miniudemywebapi\\models\\userprofilemodels\\userprofileimg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|c:\\users\\vu116399\\source\\repos\\miniudemywebapi\\miniudemywebapi\\migrations\\20250415061548_inti migration for user and useprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|solutionrelative:miniudemywebapi\\migrations\\20250415061548_inti migration for user and useprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|c:\\users\\vu116399\\source\\repos\\miniudemywebapi\\miniudemywebapi\\models\\userprofilemodels\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|solutionrelative:miniudemywebapi\\models\\userprofilemodels\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|c:\\users\\vu116399\\source\\repos\\miniudemywebapi\\miniudemywebapi\\models\\userprofilemodels\\userprofileaddr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|solutionrelative:miniudemywebapi\\models\\userprofilemodels\\userprofileaddr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|c:\\users\\vu116399\\source\\repos\\miniudemywebapi\\miniudemywebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5270A45D-24E8-48D6-BC62-CF279D789905}|MiniUdemyWebAPI\\MiniUdemyWebAPI.csproj|solutionrelative:miniudemywebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 257,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Course.cs",
+              "DocumentMoniker": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\CourseModels\\Course.cs",
+              "RelativeDocumentMoniker": "MiniUdemyWebAPI\\Models\\CourseModels\\Course.cs",
+              "ToolTip": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\CourseModels\\Course.cs",
+              "RelativeToolTip": "MiniUdemyWebAPI\\Models\\CourseModels\\Course.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAcwB8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T12:05:52.003Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Language.cs",
+              "DocumentMoniker": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\CourseModels\\Language.cs",
+              "RelativeDocumentMoniker": "MiniUdemyWebAPI\\Models\\CourseModels\\Language.cs",
+              "ToolTip": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\CourseModels\\Language.cs",
+              "RelativeToolTip": "MiniUdemyWebAPI\\Models\\CourseModels\\Language.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T11:51:27.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "MiniUdemyWebAPI\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "MiniUdemyWebAPI\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:55:48.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "20250415065108_Added Role and UserRoles tables.cs",
+              "DocumentMoniker": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Migrations\\20250415065108_Added Role and UserRoles tables.cs",
+              "RelativeDocumentMoniker": "MiniUdemyWebAPI\\Migrations\\20250415065108_Added Role and UserRoles tables.cs",
+              "ToolTip": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Migrations\\20250415065108_Added Role and UserRoles tables.cs",
+              "RelativeToolTip": "MiniUdemyWebAPI\\Migrations\\20250415065108_Added Role and UserRoles tables.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:51:09.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserRoles.cs",
+              "DocumentMoniker": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\UserModels\\UserRoles.cs",
+              "RelativeDocumentMoniker": "MiniUdemyWebAPI\\Models\\UserModels\\UserRoles.cs",
+              "ToolTip": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\UserModels\\UserRoles.cs",
+              "RelativeToolTip": "MiniUdemyWebAPI\\Models\\UserModels\\UserRoles.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAIA3wBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:33:55.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Role.cs",
+              "DocumentMoniker": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\UserModels\\Role.cs",
+              "RelativeDocumentMoniker": "MiniUdemyWebAPI\\Models\\UserModels\\Role.cs",
+              "ToolTip": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\UserModels\\Role.cs",
+              "RelativeToolTip": "MiniUdemyWebAPI\\Models\\UserModels\\Role.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:18:37.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\UserModels\\User.cs",
+              "RelativeDocumentMoniker": "MiniUdemyWebAPI\\Models\\UserModels\\User.cs",
+              "ToolTip": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\UserModels\\User.cs",
+              "RelativeToolTip": "MiniUdemyWebAPI\\Models\\UserModels\\User.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAwwCYAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:01:59.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MiniUdemyDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Data\\MiniUdemyDBContext.cs",
+              "RelativeDocumentMoniker": "MiniUdemyWebAPI\\Data\\MiniUdemyDBContext.cs",
+              "ToolTip": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Data\\MiniUdemyDBContext.cs",
+              "RelativeToolTip": "MiniUdemyWebAPI\\Data\\MiniUdemyDBContext.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwBgAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:02:42.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserProfileImg.cs",
+              "DocumentMoniker": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\UserProfileModels\\UserProfileImg.cs",
+              "RelativeDocumentMoniker": "MiniUdemyWebAPI\\Models\\UserProfileModels\\UserProfileImg.cs",
+              "ToolTip": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\UserProfileModels\\UserProfileImg.cs",
+              "RelativeToolTip": "MiniUdemyWebAPI\\Models\\UserProfileModels\\UserProfileImg.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA2wBQAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:05:27.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20250415061548_Inti migration for user and useprofile.cs",
+              "DocumentMoniker": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Migrations\\20250415061548_Inti migration for user and useprofile.cs",
+              "RelativeDocumentMoniker": "MiniUdemyWebAPI\\Migrations\\20250415061548_Inti migration for user and useprofile.cs",
+              "ToolTip": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Migrations\\20250415061548_Inti migration for user and useprofile.cs",
+              "RelativeToolTip": "MiniUdemyWebAPI\\Migrations\\20250415061548_Inti migration for user and useprofile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:15:49.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserProfile.cs",
+              "DocumentMoniker": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\UserProfileModels\\UserProfile.cs",
+              "RelativeDocumentMoniker": "MiniUdemyWebAPI\\Models\\UserProfileModels\\UserProfile.cs",
+              "ToolTip": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\UserProfileModels\\UserProfile.cs",
+              "RelativeToolTip": "MiniUdemyWebAPI\\Models\\UserProfileModels\\UserProfile.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwAcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:02:58.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserProfileAddr.cs",
+              "DocumentMoniker": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\UserProfileModels\\UserProfileAddr.cs",
+              "RelativeDocumentMoniker": "MiniUdemyWebAPI\\Models\\UserProfileModels\\UserProfileAddr.cs",
+              "ToolTip": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Models\\UserProfileModels\\UserProfileAddr.cs",
+              "RelativeToolTip": "MiniUdemyWebAPI\\Models\\UserProfileModels\\UserProfileAddr.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowCAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T06:05:12.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "MiniUdemyWebAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\Program.cs",
+              "RelativeToolTip": "MiniUdemyWebAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T05:48:17.669Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
