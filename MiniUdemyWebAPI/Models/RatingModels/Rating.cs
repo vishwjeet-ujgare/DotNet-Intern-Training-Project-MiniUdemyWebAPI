@@ -11,12 +11,12 @@ namespace MiniUdemyWebAPI.Models.RatingModels
         public int RatingId { get; set; }
 
         [Range(1,5)]
-        public float Starts { get; set; }
+        public float Stars { get; set; }
 
         [MaxLength(500)]
         public string? Comment { get; set; }
 
-        public DateTime RatedOn { get; set; }
+        public DateTime RatedOn { get; set; } = DateTime.UtcNow;
         public bool IsUpdated { get; set; } = false;
 
         public  int EnrollmentId { get; set; }

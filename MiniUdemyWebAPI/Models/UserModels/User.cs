@@ -43,6 +43,9 @@ namespace MiniUdemyWebAPI.Models.UserModels
 
 
         //Navigation properties
+
+        public ICollection<Course> Courses { get; set; }
+
         public UserProfile UserProfile { get; set; }
 
         public ICollection<UserRoles> UserRoles  { get; set; }

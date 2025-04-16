@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MiniUdemyWebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class intializingdb : Migration
+    public partial class intiDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,19 +17,19 @@ namespace MiniUdemyWebAPI.Migrations
                 name: "CourseCategories",
                 columns: table => new
                 {
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    CourseCategoryId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     ParentCategoryId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CourseCategories", x => x.CategoryId);
+                    table.PrimaryKey("PK_CourseCategories", x => x.CourseCategoryId);
                     table.ForeignKey(
                         name: "FK_CourseCategories_CourseCategories_ParentCategoryId",
                         column: x => x.ParentCategoryId,
                         principalTable: "CourseCategories",
-                        principalColumn: "CategoryId");
+                        principalColumn: "CourseCategoryId");
                 });
 
             migrationBuilder.CreateTable(
@@ -84,6 +84,7 @@ namespace MiniUdemyWebAPI.Migrations
                     CourseId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Headline = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     Duration = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Fees = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -96,7 +97,8 @@ namespace MiniUdemyWebAPI.Migrations
                     Months = table.Column<int>(type: "int", nullable: false),
                     Days = table.Column<int>(type: "int", nullable: false),
                     LanguageId = table.Column<int>(type: "int", nullable: false),
-                    CourseCategoryId = table.Column<int>(type: "int", nullable: false)
+                    CourseCategoryId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -105,7 +107,7 @@ namespace MiniUdemyWebAPI.Migrations
                         name: "FK_Courses_CourseCategories_CourseCategoryId",
                         column: x => x.CourseCategoryId,
                         principalTable: "CourseCategories",
-                        principalColumn: "CategoryId",
+                        principalColumn: "CourseCategoryId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Courses_Languages_LanguageId",
@@ -113,6 +115,11 @@ namespace MiniUdemyWebAPI.Migrations
                         principalTable: "Languages",
                         principalColumn: "LanguageId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Courses_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId");
                 });
 
             migrationBuilder.CreateTable(
@@ -254,7 +261,7 @@ namespace MiniUdemyWebAPI.Migrations
                 {
                     RatingId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Starts = table.Column<float>(type: "real", nullable: false),
+                    Stars = table.Column<float>(type: "real", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     RatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsUpdated = table.Column<bool>(type: "bit", nullable: false),
@@ -269,6 +276,27 @@ namespace MiniUdemyWebAPI.Migrations
                         principalTable: "Enrollments",
                         principalColumn: "EnrollmentId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "CourseCategories",
+                columns: new[] { "CourseCategoryId", "CategoryName", "ParentCategoryId" },
+                values: new object[,]
+                {
+                    { 1, "Programming", null },
+                    { 2, "Data Science", null },
+                    { 3, "Web Development", null },
+                    { 4, "Mobile Development", null },
+                    { 5, "Game Development", null },
+                    { 6, "Cloud Computing", null },
+                    { 7, "Cyber Security", null },
+                    { 8, "Artificial Intelligence", null },
+                    { 9, "Machine Learning", null },
+                    { 10, "Blockchain", null },
+                    { 11, "Data Analysis", null },
+                    { 12, "Digital Marketing", null },
+                    { 13, "Graphic Design", null },
+                    { 14, "UI/UX Design", null }
                 });
 
             migrationBuilder.InsertData(
@@ -291,6 +319,39 @@ namespace MiniUdemyWebAPI.Migrations
                     { 3, "Student" }
                 });
 
+            migrationBuilder.InsertData(
+                table: "CourseCategories",
+                columns: new[] { "CourseCategoryId", "CategoryName", "ParentCategoryId" },
+                values: new object[,]
+                {
+                    { 15, "Web Design", 3 },
+                    { 16, "Web Development", 3 },
+                    { 17, "Mobile App Development", 4 },
+                    { 18, "Game Design", 5 },
+                    { 19, "Game Development", 5 },
+                    { 20, "Cloud Security", 7 },
+                    { 21, "Cloud Development", 6 },
+                    { 22, "Data Visualization", 11 },
+                    { 23, "Data Engineering", 2 },
+                    { 24, "Java", 1 },
+                    { 25, "C#", 1 },
+                    { 26, "C++", 1 },
+                    { 27, "JavaScript", 1 },
+                    { 28, "Python", 1 },
+                    { 29, "PHP", 1 },
+                    { 30, "Ruby", 1 },
+                    { 31, "Swift", 1 },
+                    { 32, "Kotlin", 1 },
+                    { 33, ".NET", 1 },
+                    { 34, "ASP.NET", 1 },
+                    { 35, "Django", 1 },
+                    { 36, "Flask", 1 },
+                    { 37, "Node.js", 1 },
+                    { 38, "React.js", 1 },
+                    { 39, "Angular", 1 },
+                    { 40, "Vue.js", 1 }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_CourseCategories_ParentCategoryId",
                 table: "CourseCategories",
@@ -305,6 +366,11 @@ namespace MiniUdemyWebAPI.Migrations
                 name: "IX_Courses_LanguageId",
                 table: "Courses",
                 column: "LanguageId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Courses_UserId",
+                table: "Courses",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Enrollments_CourseId",
@@ -379,13 +445,13 @@ namespace MiniUdemyWebAPI.Migrations
                 name: "Courses");
 
             migrationBuilder.DropTable(
-                name: "Users");
-
-            migrationBuilder.DropTable(
                 name: "CourseCategories");
 
             migrationBuilder.DropTable(
                 name: "Languages");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

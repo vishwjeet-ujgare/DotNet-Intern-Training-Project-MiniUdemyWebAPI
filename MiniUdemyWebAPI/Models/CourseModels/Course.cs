@@ -1,6 +1,8 @@
 ﻿using MiniUdemyWebAPI.Models.EnrollmentModels;
+using MiniUdemyWebAPI.Models.UserModels;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MiniUdemyWebAPI.Models.CourseModels
 {
@@ -24,11 +26,16 @@ namespace MiniUdemyWebAPI.Models.CourseModels
     public class Course
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CourseId { get; set; }
 
         [Required]
         [MaxLength(255)]
         public string Title { get; set; }
+
+        [Required]
+        [MaxLength(255)]
+        public string Headline { get; set; }
 
         [MaxLength(1000)]
         public string Description { get; set; }
@@ -74,6 +81,9 @@ namespace MiniUdemyWebAPI.Models.CourseModels
         public int CourseCategoryId { get; set; }   //foreign key
         public CourseCategory Category { get; set; }
 
+        [Required]
+        public int UserId { get; set; }  // foreign key for instructor only
+        public User User { get; set; }
         public ICollection<Enrollments> Enrollments { get; set; }
     }
 }

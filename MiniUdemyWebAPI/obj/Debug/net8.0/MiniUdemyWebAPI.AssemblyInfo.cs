@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiniUdemyWebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1422f3e126a6c4625e54356f833ae66c3f2d7d6d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2fe44820a0ff77d147ef842f95ef064f0e17b6a")]
 [assembly: System.Reflection.AssemblyProductAttribute("MiniUdemyWebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MiniUdemyWebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

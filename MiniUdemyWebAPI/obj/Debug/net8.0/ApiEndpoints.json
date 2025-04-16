@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "MiniUdemyWebAPI.Controllers.CoursesController",
+    "Method": "SearchCourses",
+    "RelativePath": "api/courses/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MiniUdemyWebAPI.Controllers.UserController",
     "Method": "GetAllUsers",
     "RelativePath": "api/User",

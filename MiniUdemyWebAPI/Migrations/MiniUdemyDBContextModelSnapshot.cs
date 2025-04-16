@@ -52,6 +52,11 @@ namespace MiniUdemyWebAPI.Migrations
                     b.Property<decimal>("Fees")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("Headline")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
                     b.Property<int>("LanguageId")
                         .HasColumnType("int");
 
@@ -77,6 +82,9 @@ namespace MiniUdemyWebAPI.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Years")
                         .HasColumnType("int");
 
@@ -85,6 +93,8 @@ namespace MiniUdemyWebAPI.Migrations
                     b.HasIndex("CourseCategoryId");
 
                     b.HasIndex("LanguageId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Courses");
                 });
@@ -445,7 +455,7 @@ namespace MiniUdemyWebAPI.Migrations
                     b.Property<DateTime>("RatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<float>("Starts")
+                    b.Property<float>("Stars")
                         .HasColumnType("real");
 
                     b.HasKey("RatingId");
@@ -685,9 +695,17 @@ namespace MiniUdemyWebAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("MiniUdemyWebAPI.Models.UserModels.User", "User")
+                        .WithMany("Courses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.Navigation("Category");
 
                     b.Navigation("Language");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MiniUdemyWebAPI.Models.CourseModels.CourseCategory", b =>
@@ -809,6 +827,8 @@ namespace MiniUdemyWebAPI.Migrations
 
             modelBuilder.Entity("MiniUdemyWebAPI.Models.UserModels.User", b =>
                 {
+                    b.Navigation("Courses");
+
                     b.Navigation("Enrollments");
 
                     b.Navigation("UserProfile")

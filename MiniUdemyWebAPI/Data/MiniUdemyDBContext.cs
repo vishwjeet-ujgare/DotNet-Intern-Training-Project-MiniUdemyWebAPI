@@ -8,11 +8,12 @@ using MiniUdemyWebAPI.Models.UserProfileModels;
 
 namespace MiniUdemyWebAPI.Data
 {
-    public class MiniUdemyDBContext : DbContext
+    public class MiniUdemyDBContext(DbContextOptions<MiniUdemyDBContext> options) : DbContext(options)
     {
-        public MiniUdemyDBContext(DbContextOptions<MiniUdemyDBContext> options) : base(options)
-        {
-        }
+
+        //public MiniUdemyDBContext(DbContextOptions<MiniUdemyDBContext> options) : base(options)
+        //{
+        //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Add any custom configurations here
@@ -23,6 +24,16 @@ namespace MiniUdemyWebAPI.Data
                 .HasMany(u => u.UserRoles)
                 .WithOne(ur => ur.User)
                 .HasForeignKey(ur => ur.UserId);
+
+
+            // User and Courses relationship
+            modelBuilder.Entity<User>()
+             .HasMany(u => u.Courses)
+             .WithOne(c => c.User)
+             .HasForeignKey(c => c.UserId)
+             .OnDelete(DeleteBehavior.NoAction);
+
+
 
 
             modelBuilder.Entity<Role>().HasData(
@@ -102,8 +113,9 @@ namespace MiniUdemyWebAPI.Data
                 .Property(c => c.Fees)
                 .HasColumnType("decimal(18,2)");
 
+
             modelBuilder.Entity<Enrollments>()
-                .Property(e=>e.PurchasePrice)
+                .Property(e => e.PurchasePrice)
                 .HasColumnType("decimal(18,2)");
 
         }

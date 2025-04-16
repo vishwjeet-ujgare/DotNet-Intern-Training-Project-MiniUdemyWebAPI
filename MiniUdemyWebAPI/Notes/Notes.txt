@@ -1,6 +1,71 @@
-﻿namespace MiniUdemyWebAPI.Notes
-{
-    public class Notes
-    {
-    }
-}
+﻿//using Microsoft.AspNetCore.Mvc;
+//using Microsoft.EntityFrameworkCore;
+//using MiniUdemyWebAPI.Models.CourseModels;
+
+//[HttpGet("search")]
+//public async Task<IActionResult> SearchCourses(
+//    string? search,
+//    int? categoryId,
+//    int? languageId,
+//    string? level,
+//    decimal? minPrice,
+//    decimal? maxPrice,
+//    string? sortBy = "createdAt",
+//    string? sortOrder = "desc",
+//    int page = 1,
+//    int pageSize = 10)
+//{
+//    var query = _context.Courses
+//        .Include(c => c.Category)
+//        .Include(c => c.Language)
+//        .AsQueryable();
+
+//    // Filtering
+//    if (!string.IsNullOrEmpty(search))
+//        query = query.Where(c => c.Title.Contains(search) || c.Description.Contains(search));
+
+//    if (categoryId.HasValue)
+//        query = query.Where(c => c.CourseCategoryId == categoryId.Value);
+
+//    if (languageId.HasValue)
+//        query = query.Where(c => c.LanguageId == languageId.Value);
+
+//    if (!string.IsNullOrEmpty(level) && Enum.TryParse<CourseLevels>(level, true, out var parsedLevel))
+//        query = query.Where(c => c.Level == parsedLevel);
+
+//    if (minPrice.HasValue)
+//        query = query.Where(c => c.Fees >= minPrice.Value);
+
+//    if (maxPrice.HasValue)
+//        query = query.Where(c => c.Fees <= maxPrice.Value);
+
+//    // Sorting
+//    query = (sortBy?.ToLower(), sortOrder?.ToLower()) switch
+//    {
+//        ("title", "asc") => query.OrderBy(c => c.Title),
+//        ("title", "desc") => query.OrderByDescending(c => c.Title),
+
+//        ("price", "asc") => query.OrderBy(c => c.Fees),
+//        ("price", "desc") => query.OrderByDescending(c => c.Fees),
+
+//        ("rating", "asc") => query.OrderBy(c => c.Enrollments.Average(e => e.Rating.Starts)),
+//        ("rating", "desc") => query.OrderByDescending(c => c.Enrollments.Average(e => e.Rating.Starts)),
+
+//        _ => query.OrderByDescending(c => c.CreatedAt)
+//    };
+
+//    // Paging
+//    var totalRecords = await query.CountAsync();
+//    var results = await query
+//        .Skip((page - 1) * pageSize)
+//        .Take(pageSize)
+//        .ToListAsync();
+
+//    return Ok(new
+//    {
+//        TotalCount = totalRecords,
+//        Page = page,
+//        PageSize = pageSize,
+//        Data = results
+//    });
+//}
