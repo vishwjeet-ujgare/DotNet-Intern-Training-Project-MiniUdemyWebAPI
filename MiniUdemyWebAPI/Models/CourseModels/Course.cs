@@ -18,9 +18,11 @@ namespace MiniUdemyWebAPI.Models.CourseModels
 
     public enum CourseLevels
     {
+        
         Beginner,
         Intermediate,
-        Advanced
+        Advanced,
+        All_Levels
     }
 
     public class Course
