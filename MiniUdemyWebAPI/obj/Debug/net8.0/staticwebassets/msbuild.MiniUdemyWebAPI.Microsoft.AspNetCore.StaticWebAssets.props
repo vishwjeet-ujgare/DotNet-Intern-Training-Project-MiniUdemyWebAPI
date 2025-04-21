@@ -1,0 +1,22 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\dummy_Image.jfif'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MiniUdemyWebAPI</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MiniUdemyWebAPI</BasePath>
+      <RelativePath>images/dummy_Image.jfif</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>6tkpqvqyu2</Fingerprint>
+      <Integrity>ZnRX/E5+vsjyBDlCUoUqp+yeZaFDY/+0zFhN/jrzttM=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\dummy_Image.jfif'))</OriginalItemSpec>
+    </StaticWebAsset>
+  </ItemGroup>
+</Project>

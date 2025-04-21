@@ -3,14 +3,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MiniUdemyWebAPI.Data;
 using MiniUdemyWebAPI.DTO.Course;
+using MiniUdemyWebAPI.DTO.EnrollmentDtos;
 using MiniUdemyWebAPI.Models.CourseModels;
+using MiniUdemyWebAPI.Repositories.Interfaces;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MiniUdemyWebAPI.Controllers
 {
     [Route("api/courses")]
     [ApiController]
-    public class CoursesController(MiniUdemyDBContext _miniUdemyDB) : ControllerBase
+    public class CoursesController(ICourseRepository _courseRepository) : ControllerBase
     {
+
 
         [HttpGet("search")]
         public async Task<IActionResult> SearchCourses(
@@ -30,117 +34,18 @@ namespace MiniUdemyWebAPI.Controllers
 
             )
         {
-            var query = _miniUdemyDB.Courses
-                  .Include(c => c.Category)
-                  .Include(c => c.User)
-                  .Include(c => c.Language)
-                  .Include(c => c.Enrollments)
-                    .ThenInclude(e => e.Rating)
-                  .AsQueryable();
 
-            // Filtering with multiple conditions
-            if (!string.IsNullOrEmpty(search))
+            var courses = await _courseRepository.SearchCoursesAsync(search, level, minPrice, maxPrice, price, langs, sortBy, page, pageSize);
+         
+            if (courses == null || !courses.Any())
             {
-                query = query.Where(c =>
-
-                (c.Title != null && c.Title.Contains(search)) ||
-                (c.Headline != null && c.Headline.Contains(search)) ||
-                (c.Description != null && c.Description.Contains(search)));
+                return NotFound(new { Success = false, Message = "No courses found" });
             }
 
-            if (!string.IsNullOrEmpty(level) && Enum.TryParse<CourseLevels>(level, true, out var parsedLevel))
-                query = query.Where(c => c.Level == parsedLevel);
 
-            if (minPrice.HasValue)
-                query = query.Where(c => c.Fees >= minPrice.Value);
+            ////Paging
 
-            if (maxPrice.HasValue)
-                query = query.Where(c => c.Fees <= maxPrice.Value);
-
-            if (!string.IsNullOrEmpty(price))
-            {
-                if (price.ToLower() == "free")
-                    query = query.Where(c => c.Fees < decimal.Parse("0.01"));
-                if (price.ToLower() == "paid")
-                    query = query.Where(c => c.Fees > decimal.Parse("0.00"));
-            }
-
-            // Any() => checks if the collection has any elements
-            if (langs.Any() && langs != null)
-            {
-                query = query.Where(c => langs.Any(lan
-                    => c.Language.LanguageName.Equals(lan)));
-            }
-
-            //Sorting by 
-            //most-relecant --->default
-            //-- Newest
-            //price -- low to high
-            //price -- high to low
-            //most reviewed => how many star/ratings a course has and sorty by that i.e how many users have given rating
-            //-- Highest-rated => need to cal avg rating per course and sort by that
-
-            query = (sortBy?.ToLower()) switch
-            {
-                ("most-relevant") => query.OrderByDescending(c =>
-                        (EF.Functions.Like(c.Title, $"{search} %") ? 4 : 0) +
-                    (EF.Functions.Like(c.Title,$"%{search}%") ?3:0) + 
-                    (EF.Functions.Like(c.Headline,$"%{search}%") ? 2 : 0) +
-                    (EF.Functions.Like(c.Description, $"%{search}%") ? 2 : 0)),
-
-                ("price-high-low") => query.OrderByDescending(c => c.Fees),
-                ("price-low-high") => query.OrderBy(c => c.Fees),
-                ("newest") => query.OrderByDescending(c => c.CreatedAt),
-
-                ("highest-ratings") => query.OrderByDescending(c =>
-                        c.Enrollments.Any(e => e.Rating != null) ?
-                            c.Enrollments.Where(e => e.Rating != null)
-                            .Average(e => e.Rating.Stars) : 0),
-
-
-                ("most-reviewed") => query.OrderByDescending(c =>
-                        c.Enrollments.Count(e => e.Rating != null)),
-                //("rating", "desc") => query.OrderByDescending(c => c.Enrollments.Average(e => e.Rating.Starts)),
-
-                _ => query.OrderBy(c => c.Title)
-            };
-
-
-            // at page 1 skip 0 records
-            // at page 2 skip 10 recods
-            // at page 3 skip 20 records
-            // and so on 
-            var results = await query.Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .Select(c => new CoursePublicDto
-                {
-                    CourseId = c.CourseId,
-
-                    Title = c.Title,
-                    Headline = c.Headline,
-                    ThumbnailUrl = c.ThumbnailUrl,
-                    Duration = c.Duration,
-
-                    UserName = c.User.FirstName + " " + c.User.UserProfile.LastName,
-
-                    TotalRatingCount = c.Enrollments.Count(e => e.Rating != null),
-                    AvgRating = c.Enrollments.Count(e => e.Rating != null) > 0 ?
-                            c.Enrollments.Average(e => e.Rating.Stars) : 0,
-
-
-
-
-                    Level = c.Level.ToString(),
-
-                    Fees = c.Fees,
-
-                }).ToListAsync();
-
-
-
-            //Paging
-
-            var totalRecords = await query.CountAsync();
+            var totalRecords = courses.Count();
 
             var totalPages = (int)Math.Ceiling((double)totalRecords / pageSize);
 
@@ -149,11 +54,131 @@ namespace MiniUdemyWebAPI.Controllers
                 Success = true,
                 TotalResults = totalRecords,
                 CurrentPage = page,
-                PageSize=pageSize,
-                TotalPages=totalPages,
-                Data = results
+                PageSize = pageSize,
+                TotalPages = totalPages,
+                Data = courses
             });
         }
 
+
+
+
+
+
+
+        //[HttpGet("{courseId:int}")]
+        //public async Task<IActionResult> GetCourseById(int courseId)
+        //{
+
+        //    var course = await _miniUdemyDB.Courses
+        //        .Include(c => c.Category)
+        //        .Include(c => c.User)
+        //            .ThenInclude(u => u.UserProfile)
+        //        .Include(c => c.Language)
+        //        .Include(c => c.Enrollments)
+        //            .ThenInclude(e => e.Rating)
+        //        .FirstOrDefaultAsync(c => c.CourseId == courseId);
+
+        //    if (course == null)
+        //    {
+        //        return NotFound(new { Success = false, Message = "Course not found" });
+        //    }
+
+
+
+        //    var EnrollementDetails = await _miniUdemyDB.Enrollments
+        //     .Include(e => e.User)
+        //     .Where(e => e.CourseId == courseId)
+        //     .Select(e => new EnrollmentPublicDto
+        //     {
+        //         Status = e.Status.ToString(),
+        //         //TotalEnrolledCount = e.Course.Enrollments.Count(en => en.Status.Equals(EnrollmentStatus.Completed.ToString()) || en.Status.Equals(EnrollmentStatus.Enrolled.ToString())),
+        //         TotalEnrolledCount = e.Course.Enrollments.Count(),
+        //     })
+        //     .ToListAsync();
+
+
+
+        //    // Check if the course is published
+        //    var result = new CourseDetailsDto
+        //    {
+        //        CourseId = course.CourseId,
+        //        ThumbnailUrl = course.ThumbnailUrl,
+        //        Title = course.Title,
+        //        Headline = course.Headline,
+        //        //created by
+        //        UserId = course.User.UserId,
+        //        Instructor = course.User.FirstName + " " + course.User.UserProfile.LastName,
+
+        //        //last udpate
+        //        UpdatedAt = course.UpdatedAt,
+        //        //lang
+        //        Language = course.Language.LanguageName,
+
+        //        //total learners
+        //        //TotalLearners = course.Enrollments.Count(e => e.Status == EnrollmentStatus.Completed || e.Status == EnrollmentStatus.Enrolled),
+
+
+        //        //total reviews count and avg rating
+        //        TotalRatingCount = course.Enrollments.Count(e => e.Rating != null),
+        //        AvgRating = course.Enrollments.Count(e => e.Rating != null) > 0 ?
+        //                    course.Enrollments.Average(e => e.Rating.Stars) : 0,
+
+        //        //related topics
+        //        Duration = course.Duration,
+        //        //Instructors Information
+        //        //Featured review 4 reviews
+        //        //More coruses by instructor
+
+
+
+
+        //        Description = course.Description,
+        //        Level = course.Level.ToString(),
+        //        Fees = course.Fees,
+
+
+
+        //    };
+
+
+        //    return Ok(new { Success = true, Data = result });
+        //}
+
+
+        //public async Task<IActionResult> UploadImage(IFormFile imageFile)
+        //{
+        //    if (imageFile == null || imageFile.Length == 0)
+        //    {
+        //        return BadRequest("No image file provided.");
+        //    }
+
+        //    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+        //    if (!Directory.Exists(uploadsFolder))
+        //    {
+        //        Directory.CreateDirectory(uploadsFolder);
+        //    }
+
+        //    var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(imageFile.FileName);
+        //    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+        //    using (var fileStream = new FileStream(filePath, FileMode.Create))
+        //    {
+        //        await imageFile.CopyToAsync(fileStream);
+        //    }
+
+        //    var image = new Image
+        //    {
+        //        FileName = uniqueFileName,
+        //        FilePath = "/images/" + uniqueFileName
+        //    };
+
+        //    _context.Images.Add(image);
+        //    await _context.SaveChangesAsync();
+
+        //    return Ok(new { image.Id, image.FilePath });
+        //}
+
     }
+
 }

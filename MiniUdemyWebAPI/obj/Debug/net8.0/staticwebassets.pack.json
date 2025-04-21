@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\VU116399\\source\\repos\\MiniUdemyWebAPI\\MiniUdemyWebAPI\\wwwroot\\images\\dummy_Image.jfif",
+      "PackagePath": "staticwebassets\\images\\dummy_Image.jfif"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MiniUdemyWebAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MiniUdemyWebAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.MiniUdemyWebAPI.props",
+      "PackagePath": "build\\MiniUdemyWebAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.MiniUdemyWebAPI.props",
+      "PackagePath": "buildMultiTargeting\\MiniUdemyWebAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.MiniUdemyWebAPI.props",
+      "PackagePath": "buildTransitive\\MiniUdemyWebAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

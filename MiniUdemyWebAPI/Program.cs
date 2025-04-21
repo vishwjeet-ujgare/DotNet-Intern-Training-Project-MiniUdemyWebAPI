@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MiniUdemyWebAPI.Data;
+using MiniUdemyWebAPI.Repositories.Implementations.CourseRepository;
+using MiniUdemyWebAPI.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 
 builder.Services.AddDbContext<MiniUdemyDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MiniUdemyDB")));
@@ -24,6 +28,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//for serving file from wwwroot
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 

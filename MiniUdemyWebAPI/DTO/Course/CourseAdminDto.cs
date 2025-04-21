@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MiniUdemyWebAPI.DTO.Course
 {
-    public class CourseAdminDto : CoursePublicDto
+    public class CourseAdminDto : CourseCardDto
     {
         public enum CourseStatus
         {
@@ -18,7 +18,6 @@ namespace MiniUdemyWebAPI.DTO.Course
         public CourseStatus Status { get; set; } = CourseStatus.Draft;
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
 
         //Course validity
@@ -37,15 +36,7 @@ namespace MiniUdemyWebAPI.DTO.Course
         public String Category { get; set; } // foreign key
 
 
-        [Required]
-        public int LanguageId { get; set; } // foreign key
-        public string Language { get; set; }
-
-        [MaxLength(1000)]
-        public string Description { get; set; }
-
-
-
         public List<Enrollments> Enrollments { get; set; }
+
     }
 }

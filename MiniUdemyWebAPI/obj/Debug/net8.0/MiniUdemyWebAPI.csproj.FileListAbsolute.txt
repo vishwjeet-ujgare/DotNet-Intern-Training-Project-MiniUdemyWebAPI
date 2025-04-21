@@ -146,3 +146,4 @@ C:\Users\VU116399\source\repos\MiniUdemyWebAPI\MiniUdemyWebAPI\obj\Debug\net8.0\
 C:\Users\VU116399\source\repos\MiniUdemyWebAPI\MiniUdemyWebAPI\obj\Debug\net8.0\MiniUdemyWebAPI.pdb
 C:\Users\VU116399\source\repos\MiniUdemyWebAPI\MiniUdemyWebAPI\obj\Debug\net8.0\MiniUdemyWebAPI.genruntimeconfig.cache
 C:\Users\VU116399\source\repos\MiniUdemyWebAPI\MiniUdemyWebAPI\obj\Debug\net8.0\ref\MiniUdemyWebAPI.dll
+C:\Users\VU116399\source\repos\MiniUdemyWebAPI\MiniUdemyWebAPI\bin\Debug\net8.0\MiniUdemyWebAPI.staticwebassets.runtime.json

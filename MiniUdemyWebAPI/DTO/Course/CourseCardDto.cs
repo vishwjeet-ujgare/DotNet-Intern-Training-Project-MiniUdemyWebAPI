@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MiniUdemyWebAPI.DTO.Course
 {
-    public class CoursePublicDto
+    public class CourseCardDto
     {
         public enum CourseLevels
         {
@@ -56,7 +56,10 @@ namespace MiniUdemyWebAPI.DTO.Course
 
         [Required]
         public int UserId { get; set; } //foreign key
-        public string UserName { get; set; }
+        public string Instructor { get; set; }
+
+
+    
 
     }
 }
