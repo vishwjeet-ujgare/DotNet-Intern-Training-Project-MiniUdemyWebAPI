@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MiniUdemyWebAPI.Data;
 using MiniUdemyWebAPI.Repositories.Implementations.CourseRepository;
@@ -17,6 +18,12 @@ builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 
 builder.Services.AddDbContext<MiniUdemyDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MiniUdemyDB")));
+
+
+//registering identity 
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<MiniUdemyDBContext>()
+    .AddDefaultTokenProviders();
 
 var app = builder.Build();
 

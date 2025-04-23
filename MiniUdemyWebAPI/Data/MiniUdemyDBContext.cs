@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MiniUdemyWebAPI.Models.CourseModels;
 using MiniUdemyWebAPI.Models.EnrollmentModels;
@@ -8,12 +10,12 @@ using MiniUdemyWebAPI.Models.UserProfileModels;
 
 namespace MiniUdemyWebAPI.Data
 {
-    public class MiniUdemyDBContext(DbContextOptions<MiniUdemyDBContext> options) : DbContext(options)
+    public class MiniUdemyDBContext:IdentityDbContext<IdentityUser,IdentityRole,string>
     {
 
-        //public MiniUdemyDBContext(DbContextOptions<MiniUdemyDBContext> options) : base(options)
-        //{
-        //}
+        public MiniUdemyDBContext(DbContextOptions<MiniUdemyDBContext> options) : base(options)
+        {
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Add any custom configurations here
