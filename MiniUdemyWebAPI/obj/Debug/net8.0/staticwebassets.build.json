@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jt1b25n/JvuechkfycWOa8hJKdPyuyflXbHzfSacpio=",
+  "Hash": "wGeDCJnKjQJhMBEA3pY/VTTdrwTPgxWrsto6QUWoYx4=",
   "Source": "MiniUdemyWebAPI",
   "BasePath": "_content/MiniUdemyWebAPI",
   "Mode": "Default",
@@ -62,7 +62,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 13:27:52 GMT"
+          "Value": "Thu, 24 Apr 2025 14:42:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -107,7 +107,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 13:27:52 GMT"
+          "Value": "Thu, 24 Apr 2025 14:42:27 GMT"
         },
         {
           "Name": "Cache-Control",
