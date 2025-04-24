@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiniUdemyWebAPI.Data;
 
@@ -11,9 +12,11 @@ using MiniUdemyWebAPI.Data;
 namespace MiniUdemyWebAPI.Migrations
 {
     [DbContext(typeof(MiniUdemyDBContext))]
-    partial class MiniUdemyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250423081738_seedingRoleData13")]
+    partial class seedingRoleData13
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,26 +50,6 @@ namespace MiniUdemyWebAPI.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "54572e6a-2a6d-424f-9d6c-4f4613276e7c",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "c82b1129-5b88-4232-9fcc-559717bb5b60",
-                            Name = "Instructor",
-                            NormalizedName = "INSTRUCTOR"
-                        },
-                        new
-                        {
-                            Id = "a8ba9b0c-31f5-489a-a318-146f0ca3f521",
-                            Name = "Student",
-                            NormalizedName = "STUDENT"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

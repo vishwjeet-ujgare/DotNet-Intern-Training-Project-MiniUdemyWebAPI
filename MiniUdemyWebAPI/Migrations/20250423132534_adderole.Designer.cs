@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiniUdemyWebAPI.Data;
 
@@ -11,9 +12,11 @@ using MiniUdemyWebAPI.Data;
 namespace MiniUdemyWebAPI.Migrations
 {
     [DbContext(typeof(MiniUdemyDBContext))]
-    partial class MiniUdemyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250423132534_adderole")]
+    partial class adderole
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,19 +54,19 @@ namespace MiniUdemyWebAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "54572e6a-2a6d-424f-9d6c-4f4613276e7c",
+                            Id = "42275477-f55b-4efd-8817-e1629e15996f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "c82b1129-5b88-4232-9fcc-559717bb5b60",
+                            Id = "7236126e-d26e-4878-bed3-ca69d1b80bbc",
                             Name = "Instructor",
                             NormalizedName = "INSTRUCTOR"
                         },
                         new
                         {
-                            Id = "a8ba9b0c-31f5-489a-a318-146f0ca3f521",
+                            Id = "27c7c3de-4127-44d5-8f6a-96c2a11cebff",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         });

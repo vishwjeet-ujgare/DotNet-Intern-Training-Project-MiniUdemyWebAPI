@@ -11,7 +11,7 @@ using MiniUdemyWebAPI.Models.UserProfileModels;
 namespace MiniUdemyWebAPI.Data
 {
     public class MiniUdemyDBContext:IdentityDbContext<IdentityUser,IdentityRole,string>
-    {
+    {   
 
         public MiniUdemyDBContext(DbContextOptions<MiniUdemyDBContext> options) : base(options)
         {
@@ -21,7 +21,7 @@ namespace MiniUdemyWebAPI.Data
             // Add any custom configurations here
             base.OnModelCreating(modelBuilder);
 
-
+            IdentitySeeder.SeedRolesAsync(modelBuilder);
             modelBuilder.Entity<User>()
                 .HasMany(u => u.UserRoles)
                 .WithOne(ur => ur.User)
