@@ -1,3 +1,4 @@
+use MiniUdemyDB
 select * from sys.tables
 
 select * from AspNetUsers

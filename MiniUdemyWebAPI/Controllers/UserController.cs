@@ -16,19 +16,19 @@ namespace MiniUdemyWebAPI.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult GetAllUsers()
-        {
-            //var users = _miniUdemyDBContext.Users.ToList();
-            var users = (from userTbl in _miniUdemyDBContext.Users
-                         select userTbl).ToList();
+        //[HttpGet]
+        //public IActionResult GetAllUsers()
+        //{
+        //    //var users = _miniUdemyDBContext.Users.ToList();
+        //    var users = (from userTbl in _miniUdemyDBContext.Users
+        //                 select userTbl).ToList();
 
-            if (users == null || !users.Any())
-            {
-                return NotFound("No users found.");
-            }
-            return Ok(users);
-        }
+        //    if (users == null || !users.Any())
+        //    {
+        //        return NotFound("No users found.");
+        //    }
+        //    return Ok(users);
+        //}
 
     }
 }
