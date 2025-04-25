@@ -83,9 +83,12 @@ namespace MiniUdemyWebAPI.Models.CourseModels
         public int CourseCategoryId { get; set; }   //foreign key
         public CourseCategory Category { get; set; }
 
-        [Required]
-        public int UserId { get; set; }  // foreign key for instructor only
-        public User User { get; set; }
+        //Identity user
+        public string ApplicationId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+
         public ICollection<Enrollments> Enrollments { get; set; }
+
+      
     }
 }

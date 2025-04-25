@@ -21,28 +21,22 @@ namespace MiniUdemyWebAPI.Data
             // Add any custom configurations here
             base.OnModelCreating(modelBuilder);
 
+
+
             IdentitySeeder.SeedRolesAsync(modelBuilder);
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.UserRoles)
-                .WithOne(ur => ur.User)
-                .HasForeignKey(ur => ur.UserId);
 
+            modelBuilder.Entity<ApplicationUser>()
+                .HasOne(a => a.UserProfile)
+                .WithOne(p => p.ApplicationUser)
+                .HasForeignKey<UserProfile>(p => p.ApplicationUserId);
 
-            // User and Courses relationship
-            modelBuilder.Entity<User>()
-             .HasMany(u => u.Courses)
-             .WithOne(c => c.User)
-             .HasForeignKey(c => c.UserId)
-             .OnDelete(DeleteBehavior.NoAction);
-
-
-
-
-            modelBuilder.Entity<Role>().HasData(
-                new Role { RoleId = 1, RoleName = "Admin" },
-                new Role { RoleId = 2, RoleName = "Instructor" },
-                new Role { RoleId = 3, RoleName = "Student" }
-                );
+            modelBuilder.Entity<Course>()
+                .HasOne(c => c.ApplicationUser)
+                .WithMany(u=>u.Courses)
+                .HasForeignKey(c=>c.ApplicationId)
+                .OnDelete(DeleteBehavior.Restrict);
+              
+              
 
             modelBuilder.Entity<Language>().HasData(
 
@@ -123,11 +117,7 @@ namespace MiniUdemyWebAPI.Data
         }
 
 
-        //UserTables
-        public DbSet<User> Users { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<UserRoles> UserRoles { get; set; }
-
+    
         //User profile
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<UserProfileAddr> UserProfileAddrs { get; set; }

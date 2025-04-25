@@ -53,9 +53,9 @@ namespace MiniUdemyWebAPI.Models.EnrollmentModels
         public int Days { get; set; } = 0;
 
 
-
-        public int UserId { get; set; }
-        public User User { get; set; }
+        //Identiy User
+        public string ApplicationUserId { get; set; } 
+        public ApplicationUser ApplicationUser { get; set; }
 
 
         public int CourseId { get; set; }

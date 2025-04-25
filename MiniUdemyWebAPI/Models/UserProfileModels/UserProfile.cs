@@ -36,13 +36,13 @@ namespace MiniUdemyWebAPI.Models.UserProfileModels
         public DateTime DateOfBirth { get; set; }
 
 
-    //Forign key
-        public int UserId { get; set; }
-        [ForeignKey("UserId")]
+        //For Identity table
+        //Foreign key
 
 
-        //Navigation Properties
-        public User User { get; set; }
+        public string ApplicationUserId { get; set; }
+
+        public ApplicationUser ApplicationUser { get; set; }
 
         public UserProfileImg UserProfileImg { get; set; }
 

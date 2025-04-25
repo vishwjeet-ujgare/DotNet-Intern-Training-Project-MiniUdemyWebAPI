@@ -18,7 +18,7 @@ namespace MiniUdemyWebAPI.Repositories.Implementations.CourseRepository
 
             var query = _miniUdemyDB.Courses
                  .Include(c => c.Category)
-                 .Include(c => c.User)
+                 .Include(c => c.ApplicationUser)
                  .Include(c => c.Language)
                  .Include(c => c.Enrollments)
                    .ThenInclude(e => e.Rating)
@@ -105,7 +105,7 @@ namespace MiniUdemyWebAPI.Repositories.Implementations.CourseRepository
                     ThumbnailUrl = c.ThumbnailUrl,
                     Duration = c.Duration,
 
-                    Instructor = c.User.FirstName + " " + c.User.UserProfile.LastName,
+                    Instructor = c.ApplicationUser.UserName,
 
                     TotalRatingCount = c.Enrollments.Count(e => e.Rating != null),
                     AvgRating = c.Enrollments.Count(e => e.Rating != null) > 0 ?

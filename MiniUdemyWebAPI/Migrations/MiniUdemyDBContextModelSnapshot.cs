@@ -51,19 +51,19 @@ namespace MiniUdemyWebAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "54572e6a-2a6d-424f-9d6c-4f4613276e7c",
+                            Id = "19312e55-c082-43fb-96f5-589cc5975f77",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "c82b1129-5b88-4232-9fcc-559717bb5b60",
+                            Id = "d1e15b79-262f-4563-9d6f-e605ac0156a5",
                             Name = "Instructor",
                             NormalizedName = "INSTRUCTOR"
                         },
                         new
                         {
-                            Id = "a8ba9b0c-31f5-489a-a318-146f0ca3f521",
+                            Id = "f7646ced-8421-4922-8051-07802b15486e",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         });
@@ -105,6 +105,11 @@ namespace MiniUdemyWebAPI.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(21)
+                        .HasColumnType("nvarchar(21)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -157,6 +162,10 @@ namespace MiniUdemyWebAPI.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator().HasValue("IdentityUser");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -248,6 +257,10 @@ namespace MiniUdemyWebAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseId"));
 
+                    b.Property<string>("ApplicationId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("CourseCategoryId")
                         .HasColumnType("int");
 
@@ -300,19 +313,16 @@ namespace MiniUdemyWebAPI.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Years")
                         .HasColumnType("int");
 
                     b.HasKey("CourseId");
 
+                    b.HasIndex("ApplicationId");
+
                     b.HasIndex("CourseCategoryId");
 
                     b.HasIndex("LanguageId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Courses");
                 });
@@ -610,6 +620,10 @@ namespace MiniUdemyWebAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EnrollmentId"));
 
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
@@ -637,17 +651,14 @@ namespace MiniUdemyWebAPI.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Years")
                         .HasColumnType("int");
 
                     b.HasKey("EnrollmentId");
 
-                    b.HasIndex("CourseId");
+                    b.HasIndex("ApplicationUserId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("CourseId");
 
                     b.ToTable("Enrollments");
                 });
@@ -684,110 +695,6 @@ namespace MiniUdemyWebAPI.Migrations
                     b.ToTable("Ratings");
                 });
 
-            modelBuilder.Entity("MiniUdemyWebAPI.Models.UserModels.Role", b =>
-                {
-                    b.Property<int>("RoleId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
-
-                    b.Property<string>("RoleName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("RoleId");
-
-                    b.ToTable("Roles");
-
-                    b.HasData(
-                        new
-                        {
-                            RoleId = 1,
-                            RoleName = "Admin"
-                        },
-                        new
-                        {
-                            RoleId = 2,
-                            RoleName = "Instructor"
-                        },
-                        new
-                        {
-                            RoleId = 3,
-                            RoleName = "Student"
-                        });
-                });
-
-            modelBuilder.Entity("MiniUdemyWebAPI.Models.UserModels.User", b =>
-                {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("UserId");
-
-                    b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("MiniUdemyWebAPI.Models.UserModels.UserRoles", b =>
-                {
-                    b.Property<int>("UserRoleId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserRoleId"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("RoleId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("UserRoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserRoles");
-                });
-
             modelBuilder.Entity("MiniUdemyWebAPI.Models.UserProfileModels.UserProfile", b =>
                 {
                     b.Property<int>("UserProfileId")
@@ -795,6 +702,10 @@ namespace MiniUdemyWebAPI.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserProfileId"));
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Bio")
                         .IsRequired()
@@ -826,12 +737,9 @@ namespace MiniUdemyWebAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("UserProfileId");
 
-                    b.HasIndex("UserId")
+                    b.HasIndex("ApplicationUserId")
                         .IsUnique();
 
                     b.ToTable("UserProfiles");
@@ -899,6 +807,13 @@ namespace MiniUdemyWebAPI.Migrations
                     b.ToTable("UserProfileImgs");
                 });
 
+            modelBuilder.Entity("MiniUdemyWebAPI.Models.UserModels.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -952,6 +867,12 @@ namespace MiniUdemyWebAPI.Migrations
 
             modelBuilder.Entity("MiniUdemyWebAPI.Models.CourseModels.Course", b =>
                 {
+                    b.HasOne("MiniUdemyWebAPI.Models.UserModels.ApplicationUser", "ApplicationUser")
+                        .WithMany("Courses")
+                        .HasForeignKey("ApplicationId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("MiniUdemyWebAPI.Models.CourseModels.CourseCategory", "Category")
                         .WithMany("Courses")
                         .HasForeignKey("CourseCategoryId")
@@ -964,17 +885,11 @@ namespace MiniUdemyWebAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MiniUdemyWebAPI.Models.UserModels.User", "User")
-                        .WithMany("Courses")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                    b.Navigation("ApplicationUser");
 
                     b.Navigation("Category");
 
                     b.Navigation("Language");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MiniUdemyWebAPI.Models.CourseModels.CourseCategory", b =>
@@ -988,21 +903,21 @@ namespace MiniUdemyWebAPI.Migrations
 
             modelBuilder.Entity("MiniUdemyWebAPI.Models.EnrollmentModels.Enrollments", b =>
                 {
+                    b.HasOne("MiniUdemyWebAPI.Models.UserModels.ApplicationUser", "ApplicationUser")
+                        .WithMany("Enrollments")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("MiniUdemyWebAPI.Models.CourseModels.Course", "Course")
                         .WithMany("Enrollments")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MiniUdemyWebAPI.Models.UserModels.User", "User")
-                        .WithMany("Enrollments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("ApplicationUser");
 
                     b.Navigation("Course");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MiniUdemyWebAPI.Models.RatingModels.Rating", b =>
@@ -1016,34 +931,15 @@ namespace MiniUdemyWebAPI.Migrations
                     b.Navigation("Enrollment");
                 });
 
-            modelBuilder.Entity("MiniUdemyWebAPI.Models.UserModels.UserRoles", b =>
-                {
-                    b.HasOne("MiniUdemyWebAPI.Models.UserModels.Role", "Role")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MiniUdemyWebAPI.Models.UserModels.User", "User")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("MiniUdemyWebAPI.Models.UserProfileModels.UserProfile", b =>
                 {
-                    b.HasOne("MiniUdemyWebAPI.Models.UserModels.User", "User")
+                    b.HasOne("MiniUdemyWebAPI.Models.UserModels.ApplicationUser", "ApplicationUser")
                         .WithOne("UserProfile")
-                        .HasForeignKey("MiniUdemyWebAPI.Models.UserProfileModels.UserProfile", "UserId")
+                        .HasForeignKey("MiniUdemyWebAPI.Models.UserProfileModels.UserProfile", "ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("MiniUdemyWebAPI.Models.UserProfileModels.UserProfileAddr", b =>
@@ -1089,29 +985,22 @@ namespace MiniUdemyWebAPI.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MiniUdemyWebAPI.Models.UserModels.Role", b =>
-                {
-                    b.Navigation("UserRoles");
-                });
-
-            modelBuilder.Entity("MiniUdemyWebAPI.Models.UserModels.User", b =>
-                {
-                    b.Navigation("Courses");
-
-                    b.Navigation("Enrollments");
-
-                    b.Navigation("UserProfile")
-                        .IsRequired();
-
-                    b.Navigation("UserRoles");
-                });
-
             modelBuilder.Entity("MiniUdemyWebAPI.Models.UserProfileModels.UserProfile", b =>
                 {
                     b.Navigation("UserProfileAddr")
                         .IsRequired();
 
                     b.Navigation("UserProfileImg")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MiniUdemyWebAPI.Models.UserModels.ApplicationUser", b =>
+                {
+                    b.Navigation("Courses");
+
+                    b.Navigation("Enrollments");
+
+                    b.Navigation("UserProfile")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618
