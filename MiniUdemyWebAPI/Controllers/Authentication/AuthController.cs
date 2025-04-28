@@ -17,11 +17,11 @@ namespace MiniUdemyWebAPI.Controllers.Authentication
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
 
-        public AuthController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        public AuthController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -44,7 +44,7 @@ namespace MiniUdemyWebAPI.Controllers.Authentication
             //if not create idenity user from frombody data
             if (userExists == null)
             {
-                IdentityUser user = new()
+                ApplicationUser user = new()
                 {
                     UserName = registerUser.UserName,
                     Email = registerUser.Email,

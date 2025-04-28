@@ -27,7 +27,7 @@
     <Folder Include="Controllers\Instructor\" />
     <Folder Include="Controllers\Public\" />
     <Folder Include="Controllers\Student\" />
-    <Folder Include="Repositories\Implementations\AdminRepository\" />
+    <Folder Include="DTO\Users\UserProfile\" />
   </ItemGroup>
 
 </Project>

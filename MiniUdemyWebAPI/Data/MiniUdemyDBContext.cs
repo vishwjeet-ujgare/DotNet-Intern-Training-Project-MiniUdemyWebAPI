@@ -10,7 +10,7 @@ using MiniUdemyWebAPI.Models.UserProfileModels;
 
 namespace MiniUdemyWebAPI.Data
 {
-    public class MiniUdemyDBContext:IdentityDbContext<IdentityUser,IdentityRole,string>
+    public class MiniUdemyDBContext:IdentityDbContext<ApplicationUser,IdentityRole,string>
     {   
 
         public MiniUdemyDBContext(DbContextOptions<MiniUdemyDBContext> options) : base(options)
@@ -20,8 +20,6 @@ namespace MiniUdemyWebAPI.Data
         {
             // Add any custom configurations here
             base.OnModelCreating(modelBuilder);
-
-
 
             IdentitySeeder.SeedRolesAsync(modelBuilder);
 
@@ -96,13 +94,6 @@ namespace MiniUdemyWebAPI.Data
                 new CourseCategory { CourseCategoryId = 40, CategoryName = "Vue.js", ParentCategoryId = 1 }
 
 
-
-
-
-
-
-
-
                 );
 
             modelBuilder.Entity<Course>()
@@ -115,6 +106,8 @@ namespace MiniUdemyWebAPI.Data
                 .HasColumnType("decimal(18,2)");
 
         }
+
+
 
 
     

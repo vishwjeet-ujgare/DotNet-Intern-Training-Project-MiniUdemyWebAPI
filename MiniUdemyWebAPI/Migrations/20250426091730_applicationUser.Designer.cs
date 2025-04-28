@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiniUdemyWebAPI.Data;
 
@@ -11,9 +12,11 @@ using MiniUdemyWebAPI.Data;
 namespace MiniUdemyWebAPI.Migrations
 {
     [DbContext(typeof(MiniUdemyDBContext))]
-    partial class MiniUdemyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250426091730_applicationUser")]
+    partial class applicationUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,19 +54,19 @@ namespace MiniUdemyWebAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "79f6bc12-d613-4d00-a528-28d1fbeb7bde",
+                            Id = "7a2c51de-bb4a-48e0-adf7-246bfadd6352",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "81138166-ef33-4ea9-b546-7bc6c24f5123",
+                            Id = "085db52f-832b-4ce1-944e-edb15c9522ef",
                             Name = "Instructor",
                             NormalizedName = "INSTRUCTOR"
                         },
                         new
                         {
-                            Id = "cad0489e-0d0a-4ce8-8b71-c2a38ea67652",
+                            Id = "eb4cae1d-4e5b-4e7f-9d01-1929df44bbd9",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         });
@@ -149,12 +152,7 @@ namespace MiniUdemyWebAPI.Migrations
                     b.Property<string>("RoleId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("RoleId");
 
@@ -638,17 +636,11 @@ namespace MiniUdemyWebAPI.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
                     b.Property<bool>("LockoutEnabled")
@@ -716,11 +708,6 @@ namespace MiniUdemyWebAPI.Migrations
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Headline")
                         .IsRequired()
@@ -843,10 +830,6 @@ namespace MiniUdemyWebAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("MiniUdemyWebAPI.Models.UserModels.ApplicationUser", null)
-                        .WithMany("UserRoles")
-                        .HasForeignKey("ApplicationUserId");
-
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
@@ -997,8 +980,6 @@ namespace MiniUdemyWebAPI.Migrations
 
                     b.Navigation("UserProfile")
                         .IsRequired();
-
-                    b.Navigation("UserRoles");
                 });
 
             modelBuilder.Entity("MiniUdemyWebAPI.Models.UserProfileModels.UserProfile", b =>

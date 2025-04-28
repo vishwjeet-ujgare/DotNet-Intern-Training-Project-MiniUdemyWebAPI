@@ -4,8 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MiniUdemyWebAPI.Data;
+using MiniUdemyWebAPI.Models.UserModels;
+using MiniUdemyWebAPI.Repositories.Implementations.AdminRepository.User;
 using MiniUdemyWebAPI.Repositories.Implementations.CourseRepository;
 using MiniUdemyWebAPI.Repositories.Interfaces;
+using MiniUdemyWebAPI.Repositories.Interfaces.Admin.Users;
+using MiniUdemyWebAPI.Services.Admin.Users;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,7 +30,7 @@ builder.Services.AddDbContext<MiniUdemyDBContext>(options =>
 
 
 //registering identity 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<MiniUdemyDBContext>()
     .AddDefaultTokenProviders();
 
@@ -79,6 +83,18 @@ builder.Services.AddSwaggerGen(option =>
      }
     });
 });
+
+
+// Register your repositories
+builder.Services.AddScoped<IUserAdminRepository, UserAdminRepository>();
+
+
+// Register your services
+builder.Services.AddScoped<IUserAdminService, UserAdminService>();
+//builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+
+builder.Services.AddControllers();
+
 
 
 var app = builder.Build();
