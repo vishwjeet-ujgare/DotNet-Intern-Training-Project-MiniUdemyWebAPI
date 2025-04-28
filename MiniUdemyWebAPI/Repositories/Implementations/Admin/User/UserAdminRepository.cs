@@ -5,9 +5,10 @@ using MiniUdemyWebAPI.DTO.Course;
 using MiniUdemyWebAPI.Helpers;
 using MiniUdemyWebAPI.Models.UserModels;
 using MiniUdemyWebAPI.Repositories.Interfaces.Admin.Users;
-using MiniUdemyWebAPI.Responses;
 
-namespace MiniUdemyWebAPI.Repositories.Implementations.AdminRepository.User
+
+
+namespace MiniUdemyWebAPI.Repositories.Implementations.Admin.User
 {
     public class UserAdminRepository : IUserAdminRepository
     {
@@ -34,7 +35,7 @@ namespace MiniUdemyWebAPI.Repositories.Implementations.AdminRepository.User
                 // Get the total count of users
                 var totalItems = await query.CountAsync();
 
-                // Apply pagination
+                // Apply pagination and retriving data here
                 var users = await query
                     .Skip((parameters.PageNumber - 1) * parameters.PageSize)
                     .Take(parameters.PageSize)
@@ -50,6 +51,23 @@ namespace MiniUdemyWebAPI.Repositories.Implementations.AdminRepository.User
 
             return response;
         }
+
+
+    
+        public async Task<List<IdentityRole>> GetUserRolesByIdAsync(string userId)
+        {
+            var userRoles = await _Context.UserRoles
+            .Where(ur => ur.UserId == userId)
+            .Select(ur => ur.RoleId)
+            .ToListAsync();
+
+            var roles = await _Context.Roles
+            .Where(r => userRoles.Contains(r.Id))
+            .ToListAsync();
+
+            return  roles;
+        }
+
 
         public async Task<bool> CreateUserAsync(ApplicationUser user)
         {
@@ -81,10 +99,10 @@ namespace MiniUdemyWebAPI.Repositories.Implementations.AdminRepository.User
             return await _Context.Users.FirstOrDefaultAsync(u => u.Id == userId, CancellationToken.None);
         }
 
-        public Task<PagedResult<ApplicationUser>> GetUsersByRoleAsync(string roleName, UserQueryParameters parameters)
-        {
-            throw new NotImplementedException();
-        }
+        //public Task<PagedResult<ApplicationUser>> GetUsersByRoleAsync(string roleName, UserQueryParameters parameters)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public async Task<bool> UpdateUserAsync(ApplicationUser user)
         {

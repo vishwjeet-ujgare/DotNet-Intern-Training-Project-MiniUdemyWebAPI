@@ -2,10 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using MiniUdemyWebAPI.Data;
 using MiniUdemyWebAPI.DTO.Course;
-using MiniUdemyWebAPI.Repositories.Interfaces;
+using MiniUdemyWebAPI.Repositories.Interfaces.Course;
 using static MiniUdemyWebAPI.DTO.Course.CourseCardDto;
 
-namespace MiniUdemyWebAPI.Repositories.Implementations.CourseRepository
+namespace MiniUdemyWebAPI.Repositories.Implementations.Course
 {
     public class CourseRepository(MiniUdemyDBContext _miniUdemyDB) : ICourseRepository
     {

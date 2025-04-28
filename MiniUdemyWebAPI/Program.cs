@@ -5,11 +5,15 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MiniUdemyWebAPI.Data;
 using MiniUdemyWebAPI.Models.UserModels;
-using MiniUdemyWebAPI.Repositories.Implementations.AdminRepository.User;
-using MiniUdemyWebAPI.Repositories.Implementations.CourseRepository;
-using MiniUdemyWebAPI.Repositories.Interfaces;
+
+using MiniUdemyWebAPI.Repositories.Implementations.Admin.User;
+using MiniUdemyWebAPI.Repositories.Implementations.Course;
+
 using MiniUdemyWebAPI.Repositories.Interfaces.Admin.Users;
+using MiniUdemyWebAPI.Repositories.Interfaces.Course;
+
 using MiniUdemyWebAPI.Services.Admin.Users;
+
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -85,13 +89,16 @@ builder.Services.AddSwaggerGen(option =>
 });
 
 
+
 // Register your repositories
 builder.Services.AddScoped<IUserAdminRepository, UserAdminRepository>();
-
+builder.Services.AddScoped<IUserProfileAdminRepository, UserProfileAdminRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 
 // Register your services
 builder.Services.AddScoped<IUserAdminService, UserAdminService>();
-//builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+
+
 
 builder.Services.AddControllers();
 

@@ -5,7 +5,7 @@ using MiniUdemyWebAPI.Data;
 using MiniUdemyWebAPI.DTO.Course;
 using MiniUdemyWebAPI.DTO.EnrollmentDtos;
 using MiniUdemyWebAPI.Models.CourseModels;
-using MiniUdemyWebAPI.Repositories.Interfaces;
+using MiniUdemyWebAPI.Repositories.Interfaces.Course;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace MiniUdemyWebAPI.Controllers

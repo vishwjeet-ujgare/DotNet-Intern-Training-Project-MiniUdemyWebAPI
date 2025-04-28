@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MiniUdemyWebAPI.DTO.Course;
 
-namespace MiniUdemyWebAPI.Repositories.Interfaces
+namespace MiniUdemyWebAPI.Repositories.Interfaces.Course
 {
     public interface ICourseRepository
     {
